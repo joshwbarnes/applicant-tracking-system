@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Create New Candidate</h1>
+  <%= simple_form_for @monster do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :mobile_number %>
+  <%= f.input :current_position %>
+  <%= f.input :current_employer %>
+  <%= f.input :location %>
+  <%= link_to 'Cancel', root_path, class: 'text-danger mr-2' %>
+  <%= f.submit "Confirm", class: 'btn btn-success' %>
+  <% end %>
+</div>
