@@ -13,7 +13,7 @@ class CandidatesController < ApplicationController
 
   def create
     @candidate = Candidate.new(candidate_params)
-    @candidate.user = current_user
+    # @candidate.user = current_user
     if @candidate.save
       redirect_to candidates_path
     else
@@ -25,7 +25,7 @@ class CandidatesController < ApplicationController
 
   def update
     @candidate = Candidate.update(candidate_params)
-    redirect_to candidate_path(@candidate)
+    redirect_to candidates_path(@candidate)
   end
 
   def destroy

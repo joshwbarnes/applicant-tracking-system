@@ -1,10 +1,10 @@
 <div class="container">
-  <h1>Digital People Trackr</h1>
+  <h1>"My Candidates"</h1>
 
-  <%= link_to 'Add Candidate', new_monster_path %>
+  <%= link_to 'Add Candidate', new_candidate_path %>
 
   <% @candidates.each do |candidate| %>
   <h1><%= candidate.name %></h1>
-  <%= link_to 'View candidate', candidate_path(canaidte), class: 'btn btn-primary' %>
+  <%= link_to 'View candidates', candidate_path(candidate), class: 'btn btn-primary' %>
   <% end %>
 </div>
