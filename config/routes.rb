@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :candidates
+
   root to: 'pages#home'
+
   devise_for :users
+
+  resources :candidates do
+    resources :jobs, only: [:new, :create, :show, :update, :destroy]
+  end
 
 end
