@@ -1,4 +1,13 @@
-<h1>Talent Tracker</h1>
-<%= link_to 'Create new candidates', new_candidate_path %>
+<%= form_tag candidates_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find candidate, job or company..."
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 
+<h1>Talent Tracker</h1>
+<%= link_to 'Candidates', candidates_path %>
+<%= link_to 'Jobs' %>
 

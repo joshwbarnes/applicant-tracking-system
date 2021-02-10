@@ -1,13 +1,10 @@
-<div class="homepage homepage-bg">
-  <h1>Talent Tracker</h1>
-</div>
-
 <div class="container">
-  <h1>"Candidates"</h1>
+  <h1>Candidates</h1>
+  <% @candidates.each do |candidate| %>
+  <%= link_to candidate.name, candidate_path(candidate), candidate_path(candidate), class: 'btn btn-primary' %>
+  <% end %>
+</div>
 
   <%= link_to 'Add Candidate', new_candidate_path %>
 
-  <% @candidates.each do |candidate| %>
-  <%= link_to candidate.name, monster_path(monster), candidate_path(candidate), class: 'btn btn-primary' %>
-  <% end %>
-</div>
+

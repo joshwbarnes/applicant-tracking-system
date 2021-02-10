@@ -4,4 +4,7 @@ class Job < ApplicationRecord
   validates :title, presence: true
   validates :work_type, presence: true
   validates :company, presence: true
+
+  include PgSearch::Model
+  multisearchable against: [:company, :title]
 end

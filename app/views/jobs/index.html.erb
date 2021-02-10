@@ -1,0 +1,13 @@
+<div class="homepage homepage-bg">
+  <h1>Talent Tracker</h1>
+</div>
+
+<div class="container">
+  <h1>Jobs</h1>
+
+  <%= link_to 'Add Job', new_job_path %>
+
+  <% @jobs.each do |job| %>
+  <%= link_to job.title, job_path(job), job_path(job), class: 'btn btn-primary' %>
+  <% end %>
+</div>

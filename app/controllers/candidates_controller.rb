@@ -2,6 +2,7 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
 
   def index
+    @results = PgSearch.multisearch(:query)
     @candidates = Candidate.all
   end
 
@@ -13,7 +14,7 @@ class CandidatesController < ApplicationController
 
   def create
     @candidate = Candidate.new(candidate_params)
-    @monster.user = current_user
+    @candidate.user = current_user
 
     if @candidate.save
       redirect_to candidates_path
@@ -37,7 +38,7 @@ class CandidatesController < ApplicationController
   private
 
   def candidate_params
-    params.require(:candidate).permit(:first_name, :last_name, :current_position, :email)
+    params.require(:candidate).permit(:first_name, :last_name, :current_position, :current_employer, :location, :mobile_number, :email)
   end
 
   def set_candidate
