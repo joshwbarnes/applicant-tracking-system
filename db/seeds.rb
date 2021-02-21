@@ -11,6 +11,9 @@ User.destroy_all
 
 puts 'Finished destroying DB'
 
+# SEED USERS
+
+
 # SEED CANDIDATES
 candidate_first_name = Faker::Name.first_name
 candidate_last_name = Faker::Name.last_name
@@ -19,6 +22,9 @@ candidate_mobile_number = Faker::PhoneNumber.cell_phone
 candidate_current_position = Faker::Job.title
 candidate_current_employer = Faker::Company.name
 candidate_location = Faker::Address.city
+
+candidates.each do |candidate|
+  Candidate.create!
 
 puts "Created #{candidate_first_name} #{candidate_last_name}"
 
