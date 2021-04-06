@@ -1,17 +1,16 @@
 <div class="homepage homepage-bg">
-  <div class="d-flex w-100 justify-content-center">
-      <%= form_tag candidates_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find candidate, job or company..."
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+    <!-- The sidebar -->
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a <%= link_to 'Candidates', candidates_path %></a>
+      <a <%= link_to 'Jobs' %></a>
+      <a <%= link_to 'Companies' %></a>
+    </div>
+  <!-- Page content -->
+      <div class="content">
+      </div>
 </div>
-<div>
-  <h1>Talent Tracker</h1>
-      <%= link_to 'Candidates', candidates_path %>
-      <%= link_to 'Jobs' %>
-</div>
+
+
+
+
