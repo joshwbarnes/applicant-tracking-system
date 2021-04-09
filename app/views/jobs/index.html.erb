@@ -1,13 +1,27 @@
-<div class="homepage homepage-bg">
-  <h1>Talent Tracker</h1>
-</div>
+<h1>Jobs</h1>
 
-<div class="container">
-  <h1>Jobs</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Work type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-  <%= link_to 'Add Job', new_job_path %>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= job.work_type %></td>
+        <td><%= link_to 'Show', job %></td>
+        <td><%= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <% @jobs.each do |job| %>
-  <%= link_to job.title, job_path(job), job_path(job), class: 'btn btn-primary' %>
-  <% end %>
-</div>
+<br>
+
+<%= link_to 'New Job', new_job_path %>

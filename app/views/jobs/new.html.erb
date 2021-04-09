@@ -1,4 +1,5 @@
-<div class="container">
-  <h1>Add <%= @candidate.name %> to job</h1>
-  <%= render "form" %>
-</div>
+<h1>New Job</h1>
+
+<%= render 'form', job: @job %>
+
+<%= link_to 'Back', jobs_path %>

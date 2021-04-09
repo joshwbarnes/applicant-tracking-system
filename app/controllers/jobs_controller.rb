@@ -1,39 +1,39 @@
 class JobsController < ApplicationController
+  before_action :set_job, only: %i[ show edit update destroy ]
   def create
-    @candidate = Candidate.find(params[:candidate_id])
+    # @candidate = Candidate.find(params[:candidate_id])
     @results = PgSearch.multisearch(:query)
     @job = Job.new(job_params)
-    @job.candidate = @candidate
-    @job.user = current_user
+    # @job.candidate = @candidate
+    # @job.user = current_user
     if @job.save
-      redirect_to candidate_job_path(@candidate, @job)
+      redirect_to @job
     else
-      render new
+      render :new
     end
   end
 
   def index
-    @jobs = Job.where(user_id: current_user.id)
+    @jobs = Job.all
   end
 
   def new
-    @candidate = Candidate.find(params[:candidate_id])
+    # @candidate = Candidate.find(params[:candidate_id])
     @job = Job.new
   end
 
   def show
-    make_job
     @candidate = @job.candidate
   end
 
   def update
-    make_job
+    set_job
     @job.save!
     redirect_to job_path(@job)
   end
 
   def destroy
-    make_job
+    set_job
     @job.destroy
     redirect_to root_path
   end
@@ -44,8 +44,7 @@ class JobsController < ApplicationController
     params.require(:job).permit(:candidate_id, :title, :work_type, :company, :workplace_address, :salary, :start_date)
   end
 
-  def make_job
+  def set_job
     @job = Job.find(params[:id])
   end
-end
 end
