@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Contacts</h1>
+  <% @contacts.each do |contact| %>
+  <%= link_to contact.name, contact_path(contact), class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<%= link_to 'Add Contact', new_contact_path %>
+<br><a href="/">Previous Page</a>

@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  belongs_to :job
+  has_many :jobs
 
   include PgSearch::Model
   multisearchable against: [:company, :name]
