@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Create New Company</h1>
+  <%= simple_form_for @company do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :contact %>
+  <%= f.input :job_id %>
+  <%= link_to 'Cancel', root_path, class: 'text-danger mr-2' %>
+  <%= link_to 'Confirm', companies_path, class: 'btn btn-success' %>
+  <% end %>
+</div>
