@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Add a New Contact</h1>
+  <%= simple_form_for @contact do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :mobile_number %>
+  <%= f.input :position %>
+  <%= f.input :company %>
+  <%= link_to 'Cancel', root_path, class: 'text-danger mr-2' %>
+  <%= link_to 'Confirm', contacts_path, class: 'btn btn-success' %>
+  <% end %>
+</div>

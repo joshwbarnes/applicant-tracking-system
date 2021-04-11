@@ -10,9 +10,10 @@
 </div>
 <!-- Page content -->
 <div>
-<p>Jobs</p>
+  <h1><center>Jobs</center></h1>
+    <% if @jobs.blank? %>
+    <p><center>There are no jobs</center></p>
+    <% else %>
+    <p><center>Current Jobs:</center></p>
+    <% end %>
 </div>
-
-
-
-
