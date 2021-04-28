@@ -3,11 +3,13 @@ class JobsController < ApplicationController
 
   def create
     # @candidate = Candidate.find(params[:candidate_id])
+
     @results = PgSearch.multisearch(:query)
     @job = Job.new(job_params)
     # @job.candidate = @candidate
     # @job.user = current_user
     if @job.save
+      flash[:success]= "success"
       redirect_to @job
     else
       render :new

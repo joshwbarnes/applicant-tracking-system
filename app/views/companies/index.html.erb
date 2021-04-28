@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Companies</h1>
   <% @companies.each do |company| %>
-  <%= link_to company.name, company_path(company), class: 'btn btn-primary' %>
+  <%= link_to @company.name, company_path(company), class: 'btn btn-primary' %>
   <% end %>
 </div>
 
